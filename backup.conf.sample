@@ -1,0 +1,64 @@
+# SAMPLE conf file
+# What to do with this file?
+# A. copy/paste & rename
+# - Copy/Paste this file in the same directory of main.sh
+# - Give it a explicit name
+# - remove the .sample extention
+# Exemple: pg_prod.conf or saturn_mysql_test.conf
+# B. adapt variables accordingly
+# Most of the variables have default loaded from scripts/load_defaults.sh file
+# DB CONNECT VARIABLES ARE COMPULSORY
+
+# EXECUTING_USER
+EXECUTING_USER=`whoami`
+
+# Database type to backup: MYSQL? or POSTGRES?
+DB_TYPE="POSTGRES"
+
+# Database backup user (grant all)
+DB_BKP_USER="db-bkp-user"
+
+# POSTGRES: CUSTOM (binary) or PLAIN (txt) backup
+# CUSTOM backup are more efficient and take less space (half to third size less)
+PG_BKP_TYPE="CUSTOM"
+
+# MYSQL conf file https://www.thegeeksearch.com/how-to-set-up-mysql-server-configuration-files/
+# One conf file per remote DB server. Leave blank to get same name than current file
+MYSQL_CONF_FILE="my"
+
+# MYSQL flag for DB backup based on DB change. Leave blank if you want a backup anyway
+MYSQL_WHEN_DB_UPD="YES"
+
+# If the script is not running on the DB host, you MUST define the DB HOST IP
+HOSTIP="127.0.0.1"
+
+# Optional port, will default to "3306" for MySQL and "5432" for PostgreSQL
+PORT=
+
+# Optional, will default to "/home/${EXECUTING_USER}/dumps/${HOSTNAME}/"
+# dir is created if it doesn't exist. This must be writable by the user the script is running as.
+BACKUP_DIR=
+
+# Optional, will default to all databases
+# List of databases separated by a space. ex: DB_LIST="mydb1 mydb2 mydb3"
+DB_LIST=
+
+# To be used with DB_LIST, values are "IN" (backup listed DB in DB_LIST) or "NOT IN" (backup all except listed DB in DB_LIST)
+DB_INCLUDE="IN"
+
+# Optional, lis of databases with specific processing (ex: large table processing)
+# ex: DB_LIST_SPEC="database1 database2"
+# In that case, you MUST create a database1.sh and a database2.sh file running the specifi code
+DB_LIST_SPEC=
+
+#### SETTINGS FOR ROTATED BACKUPS of POSTGRES ####
+# Which day to take the weekly backup from (1-7 = Monday-Sunday)
+DAY_OF_WEEK_TO_KEEP=5
+ 
+# Number of days to keep daily backups
+DAYS_TO_KEEP=7
+ 
+# How many weeks to keep weekly backups
+WEEKS_TO_KEEP=5
+ 
+######################################

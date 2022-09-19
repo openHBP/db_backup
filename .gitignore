@@ -1,0 +1,12 @@
+# dir
+mysql_bkp_work/*.txt
+mysql_bkp_work/*.old
+mysql_bkp_work/*.new
+mysql_bkp_work/*.sorted
+logs/*.log
+# files
+test.sh
+# ignore files
+*.conf
+*.log
+*.info

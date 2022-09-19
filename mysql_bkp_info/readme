@@ -1,0 +1,4 @@
+Folder with mysql backups info: when, which database and where it has been backup up
+Example:
+2022-04-30 (mydatabase1 BKP in /home/bkp_usr/dumps/localhost-3306/mydatabase1-2022-04-30)
+2022-05-03 (mydatabase1 BKP in /home/bkp_usr/dumps/localhost-3306/mydatabase1-2022-05-03)

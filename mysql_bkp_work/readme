@@ -1,0 +1,5 @@
+Contains MYSQL pre-processing files with DB to backup. File name like: ${HOSTNAME}_db2bkp.txt
+
+If you get a "NOTHING TO BACKUP" message be aware to delete *.old file for a new SQL DB modified fetch on information_schema
+
+Cfr. end of scripts/load_defaults.sh to see stored files (*.txt, *.old, *.new, *.sorted)
